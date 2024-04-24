@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UdioAI Music Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #4a90e2, #3b5998);
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        .switch {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: white;
+            color: black;
+            resize: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #ff6f61;
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            background: #ff4a39;
+        }
+    </style>
+    <script>
+        function toggleVisibility() {
+            const customMode = document.getElementById('customMode').checked;
+            const instrumental = document.getElementById('instrumental').checked;
+            
+            const lyrics = document.getElementById('lyrics');
+            const styleOfMusic = document.getElementById('styleOfMusic');
+            const title = document.getElementById('title');
+            const songDescription = document.getElementById('songDescription');
+            
+            if (customMode && !instrumental) {
+                lyrics.classList.remove('hidden');
+                styleOfMusic.classList.remove('hidden');
+                title.classList.remove('hidden');
+                songDescription.classList.add('hidden');
+                songDescription.value = ''; // Clear content
+            } else if (customMode && instrumental) {
+                lyrics.classList.add('hidden');
+                styleOfMusic.classList.remove('hidden');
+                title.classList.remove('hidden');
+                songDescription.classList.add('hidden');
+                songDescription.value = ''; // Clear content
+            } else if (!customMode && instrumental) {
+                lyrics.classList.add('hidden');
+                styleOfMusic.classList.add('hidden');
+                title.classList.add('hidden');
+                songDescription.classList.remove('hidden');
+            } else {
+                lyrics.classList.add('hidden');
+                styleOfMusic.classList.add('hidden');
+                title.classList.add('hidden');
+                songDescription.classList.remove('hidden');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>UdioAI Music Generator</h1>
+        <div class="switch">
+            <label>
+                Custom Mode
+                <input type="checkbox" id="customMode" onclick="toggleVisibility()" checked>
+            </label>
+            <label>
+                Instrumental
+                <input type="checkbox" id="instrumental" onclick="toggleVisibility()">
+            </label>
+        </div>
+        
+        <div class="input-group" id="lyrics">
+            <label>Lyrics</label>
+            <textarea placeholder="Enter your own lyrics..."></textarea>
+        </div>
+        
+        <div class="input-group" id="styleOfMusic">
+            <label>Style of Music</label>
+            <textarea placeholder="Enter style of music"></textarea>
+        </div>
+        
+        <div class="input-group" id="title">
+            <label>Title</label>
+            <textarea placeholder="Enter a title"></textarea>
+        </div>
+        
+        <div class="input-group hidden" id="songDescription">
+            <label>Song Description</label>
+            <textarea placeholder="Enter song description"></textarea>
+        </div>
+        
+        <button class="btn" onclick="generateSong()">Generate</button>
+    </div>
+    
+    <script>
+        function generateSong() {
+            alert("Generate button clicked");
+        }
+    </script>
+</body>
+</html>
