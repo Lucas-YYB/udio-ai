@@ -12,7 +12,7 @@ export default async (req, res) => {
         title: 'happy birthday',
         customMode: true,
         instrumental: true,
-        callBackUrl: 'https://your-vercel-app.vercel.app/api/callback', // 回调 URL
+        callBackUrl: 'https://udioai.tech//api/callback', // 回调 URL
       },
       {
         headers: {
