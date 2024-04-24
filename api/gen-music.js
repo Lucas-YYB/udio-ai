@@ -26,7 +26,6 @@ export default async (req, res) => {
       },
       body: JSON.stringify({
         style,
-        prompt,
         title,
         customMode,
         instrumental,
