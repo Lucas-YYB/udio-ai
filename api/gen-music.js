@@ -14,6 +14,7 @@ export default async (req, res) => {
   const customMode = true;  // 自定义模式
   const instrumental = true;  // 是否为纯音乐
   const callBackUrl = 'https://udioai.tech/api/callback';  // 回调URL
+  const apiKey = '779529e443ade5b94ea36a74512f7df9';  // API 密钥
 
   // 发送请求到 AI 音乐生成 API
   try {
@@ -21,6 +22,7 @@ export default async (req, res) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
         style,
